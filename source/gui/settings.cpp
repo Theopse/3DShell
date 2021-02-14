@@ -25,14 +25,14 @@ namespace GUI {
     static void DisplaySortSettings(void) {
         C2D::Text(10, 28, 0.44f, WHITE, "Sorting Options");
         
-        C2D::Text(10, 58, 0.44f, cfg.dark_theme? WHITE : BLACK, "Alphabetical");
-        C2D::Text(10, 74, 0.42f, cfg.dark_theme? WHITE : BLACK, "Sort alphabetically in ascending order.");
-        C2D::Text(10, 98, 0.44f, cfg.dark_theme? WHITE : BLACK, "Alphabetical");
-        C2D::Text(10, 114, 0.42f, cfg.dark_theme? WHITE : BLACK, "Sort alphabetically in descending order.");
-        C2D::Text(10, 138, 0.44f, cfg.dark_theme? WHITE : BLACK, "Size");
-        C2D::Text(10, 154, 0.42f, cfg.dark_theme? WHITE : BLACK, "Sort by size (largest first).");
-        C2D::Text(10, 178, 0.44f, cfg.dark_theme? WHITE : BLACK, "Size");
-        C2D::Text(10, 194, 0.42f, cfg.dark_theme? WHITE : BLACK, "Sort by size (smallest first).");
+        C2D::Text(10, 58, 0.44f, cfg.dark_theme? WHITE : BLACK, "字母顺序");
+        C2D::Text(10, 74, 0.42f, cfg.dark_theme? WHITE : BLACK, "按A-Z顺序排列");
+        C2D::Text(10, 98, 0.44f, cfg.dark_theme? WHITE : BLACK, "字母顺序");
+        C2D::Text(10, 114, 0.42f, cfg.dark_theme? WHITE : BLACK, "按Z-A顺序排列");
+        C2D::Text(10, 138, 0.44f, cfg.dark_theme? WHITE : BLACK, "大小");
+        C2D::Text(10, 154, 0.42f, cfg.dark_theme? WHITE : BLACK, "按大-小排列");
+        C2D::Text(10, 178, 0.44f, cfg.dark_theme? WHITE : BLACK, "大小");
+        C2D::Text(10, 194, 0.42f, cfg.dark_theme? WHITE : BLACK, "按小-大排列");
 
         C2D::Image(cfg.sort == 0? (cfg.dark_theme? icon_radio_dark_on : icon_radio_on) : (cfg.dark_theme? icon_radio_dark_off : icon_radio_off), 270, 60);
         C2D::Image(cfg.sort == 1? (cfg.dark_theme? icon_radio_dark_on : icon_radio_on) : (cfg.dark_theme? icon_radio_dark_off : icon_radio_off), 270, 100);
@@ -61,12 +61,13 @@ namespace GUI {
     static void DisplayUpdateSettings(void) {
         C2D::Text(10, 28, 0.44f, WHITE, "Updates");
 
-        C2D::Text(10, 58, 0.44f, cfg.dark_theme? WHITE : BLACK, "Check for updates");
-        C2D::Text(10, 74, 0.42f, cfg.dark_theme? WHITE : BLACK, "Downloads and installs the latest version.");
-        C2D::Text(10, 98, 0.44f, cfg.dark_theme? WHITE : BLACK, "About");
+        C2D::Text(10, 58, 0.44f, cfg.dark_theme? WHITE : BLACK, "检查更新");
+        C2D::Text(10, 74, 0.42f, cfg.dark_theme? WHITE : BLACK, "下载并安装最新版本");
+        C2D::Text(10, 98, 0.44f, cfg.dark_theme? WHITE : BLACK, "关于");
         C2D::Textf(10, 114, 0.42f, cfg.dark_theme? WHITE : BLACK, "3DShell v%d.%d.%d", VERSION_MAJOR, VERSION_MINOR, VERSION_MICRO);
-        C2D::Text(10, 138, 0.44f, cfg.dark_theme? WHITE : BLACK, "Author: Joel16");
-        C2D::Text(10, 154, 0.42f, cfg.dark_theme? WHITE : BLACK, "Assets: Preetisketch/CyanogenMod/LineageOS");
+        C2D::Text(10, 138, 0.44f, cfg.dark_theme? WHITE : BLACK, "作者: Joel16");
+        C2D::Text(10, 154, 0.42f, cfg.dark_theme? WHITE : BLACK, "资源: Preetisketch/CyanogenMod/LineageOS");
+        C2D::Text(10, 170, 0.42f, cfg.dark_theme? WHITE : BLACK, "汉化: Theopse/Advance汉化组");
 
         if (update_popup)
             GUI::DisplayUpdateOptions(&network_status, &update_available, tag_name);
@@ -102,14 +103,14 @@ namespace GUI {
     static void DisplayGeneralSettings(void) {
         C2D::Text(10, 28, 0.44f, WHITE, "Settings");
 
-        C2D::Text(10, 58, 0.44f, cfg.dark_theme? WHITE : BLACK, "Sort by");
-        C2D::Text(10, 74, 0.42f, cfg.dark_theme? WHITE : BLACK, "Select between various sorting options.");
-        C2D::Text(10, 98, 0.44f, cfg.dark_theme? WHITE : BLACK, "Dark theme");
-        C2D::Text(10, 114, 0.42f, cfg.dark_theme? WHITE : BLACK, "Enables dark theme mode.");
-        C2D::Text(10, 138, 0.44f, cfg.dark_theme? WHITE : BLACK, "Developer options");
-        C2D::Text(10, 154, 0.42f, cfg.dark_theme? WHITE : BLACK, "Enable logging and fs access to NAND.");
-        C2D::Text(10, 178, 0.44f, cfg.dark_theme? WHITE : BLACK, "Check for update");
-        C2D::Text(10, 194, 0.42f, cfg.dark_theme? WHITE : BLACK, "Downloads and installs the latest version.");
+        C2D::Text(10, 58, 0.44f, cfg.dark_theme? WHITE : BLACK, "文件排序");
+        C2D::Text(10, 74, 0.42f, cfg.dark_theme? WHITE : BLACK, "在各种排序选项之间选择");
+        C2D::Text(10, 98, 0.44f, cfg.dark_theme? WHITE : BLACK, "深色主题");
+        C2D::Text(10, 114, 0.42f, cfg.dark_theme? WHITE : BLACK, "启用深色主题");
+        C2D::Text(10, 138, 0.44f, cfg.dark_theme? WHITE : BLACK, "开发者选项");
+        C2D::Text(10, 154, 0.42f, cfg.dark_theme? WHITE : BLACK, "启用日志记录和fs访问NAND");
+        C2D::Text(10, 178, 0.44f, cfg.dark_theme? WHITE : BLACK, "检查更新");
+        C2D::Text(10, 194, 0.42f, cfg.dark_theme? WHITE : BLACK, "下载并安装最新版本");
         
         if (cfg.dark_theme)
             C2D::Image(cfg.dark_theme? icon_toggle_dark_on : icon_toggle_on, 270, 97);
