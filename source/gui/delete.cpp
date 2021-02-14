@@ -12,7 +12,7 @@
 
 namespace GUI {
     static int selection = 0;
-    static const std::string prompt = "Do you wish to continue?";
+    static const std::string prompt = "你想继续吗?";
     static float cancel_height = 0.f, cancel_width = 0.f, confirm_height = 0.f, confirm_width = 0.f, prompt_width = 0.f;
 
     void DisplayDeleteOptions(MenuItem *item) {
@@ -22,8 +22,8 @@ namespace GUI {
         C2D::GetTextSize(0.42f, &prompt_width, nullptr, prompt.c_str());
         C2D::Text(((320 - (prompt_width)) / 2), ((240 - (dialog.subtex->height)) / 2) + 40 - 3, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, prompt.c_str());
         
-        C2D::GetTextSize(0.42f, &confirm_width, &confirm_height, "YES");
-        C2D::GetTextSize(0.42f, &cancel_width, &cancel_height, "NO");
+        C2D::GetTextSize(0.42f, &confirm_width, &confirm_height, "是");
+        C2D::GetTextSize(0.42f, &cancel_width, &cancel_height, "否");
         
         if (selection == 0)
             C2D::Rect((288 - cancel_width) - 5, (159 - cancel_height) - 5, cancel_width + 10, cancel_height + 10, cfg.dark_theme? SELECTOR_COLOUR_DARK : SELECTOR_COLOUR_LIGHT);
