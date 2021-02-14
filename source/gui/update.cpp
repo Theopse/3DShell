@@ -15,10 +15,10 @@
 // Kinda messy, perhaps clean this up later if I ever revisit this.
 namespace GUI {
     static int selection = 0;
-    static const std::string error = "Could not connect to network.";
-    static const std::string prompt = "Do you wish to download and install vX.X.X?";
-    static const std::string success = "Update installed. Please re-run the application";
-    static const std::string no_updates = "You are already on the latest version";
+    static const std::string error = "联网失败.";
+    static const std::string prompt = "你想安装版本 vX.X.X?";
+    static const std::string success = "更新完成 请重启程序";
+    static const std::string no_updates = "已为最新版本";
     static float cancel_height = 0.f, cancel_width = 0.f, confirm_height = 0.f, confirm_width = 0.f, text_width = 0.f;
     static bool done = false;
 
