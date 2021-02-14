@@ -47,7 +47,7 @@ namespace GUI {
         C2D::Image(cfg.dark_theme? options_dialog_dark : options_dialog, 54, 30);
         C2D::Text(61, 34, 0.42f, cfg.dark_theme? TITLE_COLOUR_DARK : TITLE_COLOUR, "Actions");
         
-        C2D::GetTextSize(0.42f, &cancel_width, &cancel_height, "CANCEL");
+        C2D::GetTextSize(0.42f, &cancel_width, &cancel_height, "cancel");
         
         if (row == 0 && column == 0)
             C2D::Rect(56, 69, 103, 36, cfg.dark_theme? SELECTOR_COLOUR_DARK : SELECTOR_COLOUR_LIGHT);
@@ -66,20 +66,20 @@ namespace GUI {
         else if (column == 2 && options_more)
             C2D::Rect((256 - cancel_width) - 5, (221 - cancel_height) - 5, cancel_width + 10, cancel_height + 10, cfg.dark_theme? SELECTOR_COLOUR_DARK : SELECTOR_COLOUR_LIGHT);
             
-        C2D::Text(256 - cancel_width, 221 - cancel_height - 3, 0.42f, cfg.dark_theme? TITLE_COLOUR_DARK : TITLE_COLOUR, "CANCEL");
+        C2D::Text(256 - cancel_width, 221 - cancel_height - 3, 0.42f, cfg.dark_theme? TITLE_COLOUR_DARK : TITLE_COLOUR, "取消");
         
         if (!options_more) {
-            C2D::Text(66, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "Properties");
-            C2D::Text(66, 114, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, copy? "Paste" : "Copy");
-            C2D::Text(66, 150, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "Delete");
-            C2D::Text(170, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "Refresh");
-            C2D::Text(170, 114, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, move? "Paste" : "Move");
-            C2D::Text(170, 150, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "More...");
+            C2D::Text(66, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "属性");
+            C2D::Text(66, 114, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, copy? "粘贴" : "复制");
+            C2D::Text(66, 150, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "删除");
+            C2D::Text(170, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "删除");
+            C2D::Text(170, 114, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, move? "粘贴" : "移动");
+            C2D::Text(170, 150, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "更多...");
         }
         else {
-            C2D::Text(66, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "New folder");
-            C2D::Text(66, 114, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "Rename");
-            C2D::Text(170, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "New file");
+            C2D::Text(66, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "新建文件夹");
+            C2D::Text(66, 114, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "重命名");
+            C2D::Text(170, 78, 0.42f, cfg.dark_theme? TEXT_MIN_COLOUR_DARK : TEXT_MIN_COLOUR_LIGHT, "新文件");
         }
     }
 
@@ -147,7 +147,7 @@ namespace GUI {
                 else {
                     if (column == 0) {
                         std::string path = cfg.cwd;
-                        std::string name = OSK::GetText("New Folder", "Enter folder name");
+                        std::string name = OSK::GetText("新建文件夹", "输入文件夹名称");
                         path.append(name);
                         std::u16string path_u16 = std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t>{}.from_bytes(path.data());
                         
@@ -157,7 +157,7 @@ namespace GUI {
                         }
                     }
                     else if (column == 1) {
-                        std::string path = OSK::GetText(filename, "Enter new name");
+                        std::string path = OSK::GetText(filename, "输入新文件名");
                         if (R_SUCCEEDED(FS::Rename(&item->entries[item->selected], path.c_str()))) {
                             FS::GetDirList(cfg.cwd, item->entries);
                             GUI::ResetSelector();
@@ -203,7 +203,7 @@ namespace GUI {
                 else {
                     if (column == 0) {
                         std::string path = cfg.cwd;
-                        std::string name = OSK::GetText("New File", "Enter file name");
+                        std::string name = OSK::GetText("新文件", "输入文件名");
                         path.append(name);
                         std::u16string path_u16 = std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t>{}.from_bytes(path.data());
                         
