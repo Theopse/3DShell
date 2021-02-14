@@ -17,7 +17,7 @@ namespace GUI {
     static int start = 0;
     static u64 timestamp = 0;
 
-    static std::string empty_dir = "This is an empty directory";
+    static std::string empty_dir = "空文件夹";
     static float empty_dir_width = 0.f, empty_dir_height = 0.f;
 
     void DisplayFileBrowser(MenuItem *item) {
