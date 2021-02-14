@@ -116,7 +116,7 @@ namespace GUI {
             }
         }
         else if ((*kDown & KEY_TOUCH) && (Touch::Rect(293, 0, 320, 20))) {
-            std::string path = OSK::GetText("/", "Enter file path");
+            std::string path = OSK::GetText("/", "输入文件目录");
             path.append((path.back() != '/')? "/" : "");
             if (FS::DirExists(archive, path)) {
                 cfg.cwd = path;
